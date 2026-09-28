@@ -1,8 +1,16 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111827"><title>🇯🇵 Giappone — Link rapidi</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f5f7;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}.wrap{max-width:720px;margin:auto;padding:16px 14px 50px}header{background:#111827;color:#fff;border-radius:20px;padding:20px;margin-bottom:16px}h1{font-size:24px;margin:0 0 6px}.sub{font-size:14px;opacity:.8;line-height:1.4}.search{display:block;width:100%;margin-top:15px;padding:14px 15px;border:0;border-radius:13px;font-size:16px;outline:none}section{margin:18px 0}h2{font-size:18px;margin:0 0 10px}.count{font-size:12px;background:#e5e7eb;color:#374151;border-radius:999px;padding:3px 8px}.card{background:#fff;border-radius:16px;padding:13px;margin:9px 0;box-shadow:0 1px 5px rgba(0,0,0,.07)}.name{font-weight:750;font-size:16px}.desc{font-size:14px;line-height:1.4;margin-top:5px}.note{font-size:12px;color:#6b7280;margin-top:6px}.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:11px}.btn{display:flex;align-items:center;justify-content:center;min-height:42px;border:0;border-radius:11px;text-decoration:none;font-weight:700;font-size:13px;cursor:pointer}.maps{background:#e8eefc;color:#174ea6}.share{background:#e7f6ea;color:#137333}.copy{background:#f0f0f0;color:#333}.copybox{position:relative}.copybox summary{list-style:none}.copybox summary::-webkit-details-marker{display:none}.copybox textarea{width:100%;min-height:58px;margin-top:6px;padding:8px;border:1px solid #ddd;border-radius:8px;font:12px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;resize:none}.warn{border-left:4px solid #f59e0b}.tip{font-size:13px;background:#fff7ed;border-radius:12px;padding:11px;margin:12px 0;color:#7c2d12}
-.selectbox{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:13px;font-weight:700;color:#374151}.selectbox input{width:20px;height:20px;accent-color:#16a34a}.select-actions{display:flex;gap:8px;margin-top:8px}.select-actions button{flex:1;min-height:38px;border:0;border-radius:10px;font-weight:700;cursor:pointer}.select-all{background:#eef2ff;color:#3730a3}.select-clear{background:#f3f4f6;color:#374151}.sharebar{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(690px,calc(100% - 24px));background:#111827;color:#fff;padding:10px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.25);display:none;z-index:1000;align-items:center;gap:9px}.sharebar.show{display:flex}.sharecount{flex:1;font-size:14px;font-weight:700}.shareselected{border:0;border-radius:11px;background:#22c55e;color:#052e16;font-weight:800;padding:11px 13px;cursor:pointer}.shareselected:disabled{opacity:.45}.section-tools{display:flex;gap:6px;flex-wrap:wrap}.section-select{border:0;border-radius:9px;background:#eef2ff;color:#3730a3;padding:7px 9px;font-weight:700;cursor:pointer;font-size:12px}body{padding-bottom:70px}<style>.hero{background:#111827;color:#fff;border-radius:20px;padding:20px;margin-bottom:16px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.tool{border:0;border-radius:10px;padding:9px 11px;background:#fff;color:#111827;font-weight:700;font-size:12px;cursor:pointer}.tool.active{background:#22c55e}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.filter{border:0;border-radius:999px;padding:8px 11px;background:#e5e7eb;color:#374151;font-weight:700;font-size:12px;cursor:pointer}.filter.active{background:#111827;color:#fff}.status{font-size:13px;color:#6b7280;margin:8px 2px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.meta{margin-top:8px}.tag{display:inline-block;font-size:11px;font-weight:800;background:#f3f4f6;border-radius:999px;padding:4px 7px;color:#4b5563}.empty{padding:30px 10px;text-align:center;color:#6b7280}</style></style></head><body><div class="wrap"><header class="hero"><h1>🇯🇵 Giappone — Link rapidi</h1><div class="sub">Lista organizzata per zona · nomi e descrizioni verificati quando possibile · i punti dubbi sono lasciati da controllare manualmente. · <span id="totalCount"></span></div><input aria-label="Cerca posto, zona o tipo" autocomplete="off" class="search" enterkeyhint="search" id="search" placeholder="🔎 Cerca posto, zona o tipo…" type="search"/><div class="toolbar"><button class="tool" id="nearBtn" type="button">📍 Vicino a me</button><button class="tool" id="foodBtn" type="button">🍜 Mangiare</button><button class="tool" id="seeBtn" type="button">⛩️ Vedere</button><button class="tool" id="favBtn" type="button">★ Preferiti</button><button class="tool" id="shareCurrentBtn" type="button">🔗 Condividi selezione</button></div></header><div class="filters" id="filters"><button class="filter active" data-filter="all" type="button">Tutti</button><button class="filter" data-filter="food" type="button">🍜 Food</button><button class="filter" data-filter="templi" type="button">⛩️ Templi</button><button class="filter" data-filter="musei" type="button">🏛️ Musei</button><button class="filter" data-filter="shopping" type="button">🛍️ Shopping</button><button class="filter" data-filter="cafe" type="button">☕ Café</button><button class="filter" data-filter="natura" type="button">🌳 Natura</button><button class="filter" data-filter="ritrovi" type="button">📍 Ritrovi</button><button class="filter" data-filter="attrazioni" type="button">✨ Attrazioni</button></div><div class="status" id="status">Tutti i posti</div><div class="tip">⚠️ I punti con indicazione “da controllare” non sono stati eliminati: meglio lasciarli in sospeso che rischiare di inserirli nella zona sbagliata.</div><div id="placesRoot"></div>
+.selectbox{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:13px;font-weight:700;color:#374151}.selectbox input{width:20px;height:20px;accent-color:#16a34a}.select-actions{display:flex;gap:8px;margin-top:8px}.select-actions button{flex:1;min-height:38px;border:0;border-radius:10px;font-weight:700;cursor:pointer}.select-all{background:#eef2ff;color:#3730a3}.select-clear{background:#f3f4f6;color:#374151}.sharebar{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(690px,calc(100% - 24px));background:#111827;color:#fff;padding:10px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.25);display:none;z-index:1000;align-items:center;gap:9px}.sharebar.show{display:flex}.sharecount{flex:1;font-size:14px;font-weight:700}.shareselected{border:0;border-radius:11px;background:#22c55e;color:#052e16;font-weight:800;padding:11px 13px;cursor:pointer}.shareselected:disabled{opacity:.45}.section-tools{display:flex;gap:6px;flex-wrap:wrap}.section-select{border:0;border-radius:9px;background:#eef2ff;color:#3730a3;padding:7px 9px;font-weight:700;cursor:pointer;font-size:12px}body{padding-bottom:70px}.hero{background:#111827;color:#fff;border-radius:20px;padding:20px;margin-bottom:16px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.tool{border:0;border-radius:10px;padding:9px 11px;background:#fff;color:#111827;font-weight:700;font-size:12px;cursor:pointer}.tool.active{background:#22c55e}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.filter{border:0;border-radius:999px;padding:8px 11px;background:#e5e7eb;color:#374151;font-weight:700;font-size:12px;cursor:pointer}.filter.active{background:#111827;color:#fff}.status{font-size:13px;color:#6b7280;margin:8px 2px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.meta{margin-top:8px}.tag{display:inline-block;font-size:11px;font-weight:800;background:#f3f4f6;border-radius:999px;padding:4px 7px;color:#4b5563}.empty{padding:30px 10px;text-align:center;color:#6b7280}.fav{float:right;width:36px;height:36px;border:0;border-radius:999px;background:#f3f4f6;color:#6b7280;font-size:20px;cursor:pointer}.card.favorite .fav{background:#fef3c7;color:#b45309}</style></head><body><div class="wrap"><header class="hero"><h1>🇯🇵 Giappone — Link rapidi</h1><div class="sub">Lista organizzata per zona · nomi e descrizioni verificati quando possibile · i punti dubbi sono lasciati da controllare manualmente. · <span id="totalCount"></span></div><input aria-label="Cerca posto, zona o tipo" autocomplete="off" class="search" enterkeyhint="search" id="search" placeholder="🔎 Cerca posto, zona o tipo…" type="search"/><div class="toolbar"><button class="tool" id="nearBtn" type="button">📍 Vicino a me</button><button class="tool" id="foodBtn" type="button">🍜 Mangiare</button><button class="tool" id="seeBtn" type="button">⛩️ Vedere</button><button class="tool" id="favBtn" type="button">★ Preferiti</button><button class="tool" id="shareCurrentBtn" type="button">🔗 Condividi selezione</button></div></header><div class="filters" id="filters"><button class="filter active" data-filter="all" type="button">Tutti</button><button class="filter" data-filter="food" type="button">🍜 Food</button><button class="filter" data-filter="templi" type="button">⛩️ Templi</button><button class="filter" data-filter="musei" type="button">🏛️ Musei</button><button class="filter" data-filter="shopping" type="button">🛍️ Shopping</button><button class="filter" data-filter="cafe" type="button">☕ Café</button><button class="filter" data-filter="natura" type="button">🌳 Natura</button><button class="filter" data-filter="ritrovi" type="button">📍 Ritrovi</button><button class="filter" data-filter="attrazioni" type="button">✨ Attrazioni</button></div><div class="status" id="status">Tutti i posti</div><div class="tip">⚠️ I punti con indicazione “da controllare” non sono stati eliminati: meglio lasciarli in sospeso che rischiare di inserirli nella zona sbagliata.</div><div id="placesRoot"></div>
 <div class="empty" id="emptyState" style="display:none">Nessun luogo corrisponde alla ricerca.</div>
 <div class="sharebar" id="shareBar"><div class="sharecount" id="shareCount">0 luoghi selezionati</div><button class="shareselected" id="shareSelected" type="button" disabled>🟢 Condividi su WhatsApp</button></div>
-<button id="topBtn" type="button" style="position:fixed;right:14px;bottom:78px;border:0;border-radius:999px;background:#111827;color:#fff;width:42px;height:42px;font-size:18px;box-shadow:0 4px 18px rgba(0,0,0,.22);z-index:900">↑</button><script id="places-data" type="application/json">[
+<button id="topBtn" type="button" style="position:fixed;right:14px;bottom:78px;border:0;border-radius:999px;background:#111827;color:#fff;width:42px;height:42px;font-size:18px;box-shadow:0 4px 18px rgba(0,0,0,.22);z-index:900">↑</button><!--
+  ===== DATI MODIFICABILI =====
+  Modifica solo gli oggetti qui sotto.
+  Campi: nome, zona, categoria, descrizione, posizione, maps.
+  Categorie valide: food, templi, musei, shopping, cafe, natura, ritrovi, attrazioni.
+  Il resto della pagina costruisce automaticamente grafica, filtri e condivisione WhatsApp.
+-->
+<script id="places-data" type="application/json">
+[
   {
     "nome": "Isomaru Suisan Ryogoku West Exit",
     "zona": "Ryogoku",
@@ -78,7 +86,7 @@
   {
     "nome": "Tori Mero Ryogoku Station Front",
     "zona": "Ryogoku",
-    "categoria": "vedere",
+    "categoria": "food",
     "descrizione": "🍗 Pollo e spiedini di pollo",
     "posizione": "3 Chome-26-5 Ryogoku",
     "maps": "https://maps.app.goo.gl/KtFzjKtZPyuhtVbc8"
@@ -294,7 +302,7 @@
   {
     "nome": "Beef Cutlet AONA Okachimachi",
     "zona": "Ueno",
-    "categoria": "vedere",
+    "categoria": "food",
     "descrizione": "🥩 Gyukatsu: cotoletta di manzo impanata",
     "posizione": "6 Chome-5-7 Ueno",
     "maps": "https://maps.app.goo.gl/fYQBY6m2Pj5ias8Y6"
@@ -454,7 +462,7 @@
   {
     "nome": "Galaxy Harajuku (Samsung)",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "📱 Experience store / showroom Samsung Galaxy",
     "posizione": "1 Chome-8-9 Jingumae",
     "maps": "https://maps.app.goo.gl/UgsDfoZmK3ZPnRSg6"
@@ -462,7 +470,7 @@
   {
     "nome": "Apple Omotesando",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "🍎 Apple Store",
     "posizione": "4 Chome-2-13 Jingumae",
     "maps": "https://maps.app.goo.gl/tW7aAPF2qiqpgjm36"
@@ -470,7 +478,7 @@
   {
     "nome": "Harry Potter Shop Harajuku",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "🪄 Negozio ufficiale a tema Harry Potter",
     "posizione": "6 Chome-31-17 Jingumae",
     "maps": "https://maps.app.goo.gl/ocExcF678exUYMUB7"
@@ -478,7 +486,7 @@
   {
     "nome": "Sailor Moon Store",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "🌙 Negozio ufficiale dedicato a Sailor Moon",
     "posizione": "1 Chome-11-6 Jingumae",
     "maps": "https://maps.app.goo.gl/tWWukf1wE5ZKU9MG8"
@@ -486,7 +494,7 @@
   {
     "nome": "ONE PIECE Mugiwara Store Harajuku",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "🏴‍☠️ Negozio ufficiale dedicato a One Piece",
     "posizione": "6 Chome-31-21 Jingumae",
     "maps": "https://maps.app.goo.gl/UZw4ZuorLw2eeFM87"
@@ -494,7 +502,7 @@
   {
     "nome": "Tokyu Plaza Harajuku “HARAKADO”",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "🏬 Centro commerciale con negozi, ristoranti e spazi creativi",
     "posizione": "6 Chome-31-21 Jingumae",
     "maps": "https://maps.app.goo.gl/Yypu6Nk19G7ZD593A"
@@ -502,7 +510,7 @@
   {
     "nome": "UNIQLO Harajuku",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "👕 Negozio di abbigliamento UNIQLO",
     "posizione": "1 Chome-14-30 Jingumae",
     "maps": "https://maps.app.goo.gl/pc88sLwv6mwSniZK6"
@@ -550,7 +558,7 @@
   {
     "nome": "Harajuku Okonomiyaki Yai-yai",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "food",
     "descrizione": "🥞 Okonomiyaki, specialità giapponese cotta alla piastra",
     "posizione": "6 Chome-8-7 Jingumae",
     "maps": "https://maps.app.goo.gl/oinWGYLRJH8FUUcAA"
@@ -574,7 +582,7 @@
   {
     "nome": "DAISO Harajuku Store",
     "zona": "Harajuku",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "🛍️ Negozio 100 yen / articoli per casa e piccoli acquisti",
     "posizione": "1 Chome-19-24 Jingumae",
     "maps": "https://maps.app.goo.gl/e2Rs5Jx5XBhzNrPK9"
@@ -622,7 +630,7 @@
   {
     "nome": "ReFa",
     "zona": "Omotesando",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "✨ Negozio beauty ReFa, prodotti per cura personale",
     "posizione": "4 Chome-12-10 Jingumae",
     "maps": "https://maps.app.goo.gl/osZkSFTHa6Bq3JXz8"
@@ -638,7 +646,7 @@
   {
     "nome": "Okochi Sanso Garden",
     "zona": "Arashiyama",
-    "categoria": "vedere",
+    "categoria": "natura",
     "descrizione": "🌿 Villa storica con splendidi giardini e vista su Kyoto",
     "posizione": "8 Sagaogurayama Tabuchiyamacho",
     "maps": "https://maps.app.goo.gl/bXmVnf5xp6jnPSoi7"
@@ -814,7 +822,7 @@
   {
     "nome": "Yume Kyoto Togetsukyo",
     "zona": "Kyoto / Arashiyama 8",
-    "categoria": "vedere",
+    "categoria": "shopping",
     "descrizione": "👘 Noleggio kimono nella zona di Togetsukyo.",
     "posizione": "",
     "maps": "https://maps.app.goo.gl/4oKC65brcj1tvVpU8"
@@ -958,7 +966,7 @@
   {
     "nome": "Kiyomizu-dera",
     "zona": "Kyoto / Higashiyama 1",
-    "categoria": "vedere",
+    "categoria": "templi",
     "descrizione": "🛕 Uno dei templi più famosi di Kyoto.",
     "posizione": "Ingresso indicato nel messaggio: 500 yen",
     "maps": "https://maps.app.goo.gl/ypcLebf3oTNTJ3f59"
@@ -966,7 +974,7 @@
   {
     "nome": "Ninenzaka",
     "zona": "Kyoto / Higashiyama 1",
-    "categoria": "ritrovi",
+    "categoria": "shopping",
     "descrizione": "📍 Storica strada in salita nell’area di Higashiyama.",
     "posizione": "",
     "maps": "https://www.google.com/maps/search/?api=1&query=Ninenzaka"
@@ -974,7 +982,7 @@
   {
     "nome": "Sannenzaka",
     "zona": "Kyoto / Higashiyama 1",
-    "categoria": "ritrovi",
+    "categoria": "shopping",
     "descrizione": "📍 Storica strada in salita tra Kiyomizu-dera e Ninenzaka.",
     "posizione": "",
     "maps": "https://www.google.com/maps/search/?api=1&query=Sannenzaka"
@@ -1022,7 +1030,7 @@
   {
     "nome": "Teramachi",
     "zona": "Kyoto / Centro 1",
-    "categoria": "templi",
+    "categoria": "shopping",
     "descrizione": "🛍️ Via/area commerciale con negozi e ristoranti.",
     "posizione": "",
     "maps": "https://maps.app.goo.gl/bdafjfYxokTmDdWU6"
@@ -1174,7 +1182,7 @@
   {
     "nome": "Shinsekai",
     "zona": "Osaka / Shinsekai 1",
-    "categoria": "vedere",
+    "categoria": "attrazioni",
     "descrizione": "🏮 Quartiere storico e popolare di Osaka, dall’atmosfera rétro.",
     "posizione": "",
     "maps": "https://maps.app.goo.gl/ZJ2iRNbAnpyVDhoA9"
@@ -1198,7 +1206,7 @@
   {
     "nome": "Denden Town",
     "zona": "Osaka / Nipponbashi 1",
-    "categoria": "vedere",
+    "categoria": "shopping",
     "descrizione": "🎮 Zona di elettronica, anime, manga e videogiochi.",
     "posizione": "La “Akihabara di Osaka”",
     "maps": "https://maps.app.goo.gl/jGaUBq7mGzHef9Wp7"
@@ -1206,7 +1214,7 @@
   {
     "nome": "Tennoji Zoo",
     "zona": "Osaka / Tennoji 1",
-    "categoria": "templi",
+    "categoria": "natura",
     "descrizione": "🦁 Zoo cittadino.",
     "posizione": "",
     "maps": "https://maps.app.goo.gl/WzVaZbkfqcZJTBpm7"
@@ -1214,7 +1222,7 @@
   {
     "nome": "Osaka Aquarium Kaiyukan",
     "zona": "Osaka / Tempozan 1",
-    "categoria": "natura",
+    "categoria": "attrazioni",
     "descrizione": "🐠 Grande acquario di Osaka.",
     "posizione": "",
     "maps": "https://maps.app.goo.gl/uZkRYbJeMbP6dBAc9"
@@ -1222,7 +1230,7 @@
   {
     "nome": "Umeda Sky Building",
     "zona": "Osaka / Umeda 1",
-    "categoria": "natura",
+    "categoria": "attrazioni",
     "descrizione": "🌆 Grattacielo con osservatorio panoramico.",
     "posizione": "",
     "maps": "https://maps.app.goo.gl/DK2MASt8GopdM8me9"
@@ -1270,13 +1278,13 @@
   {
     "nome": "Harukas 300",
     "zona": "Osaka / Abeno 1",
-    "categoria": "natura",
+    "categoria": "attrazioni",
     "descrizione": "🌇 Osservatorio panoramico in cima ad Abeno Harukas.",
     "posizione": "Nel messaggio: 2000 yen",
     "maps": "https://maps.app.goo.gl/tpUbpGdDmGEZm38g8"
-  },
-
-]</script>
+  }
+]
+</script>
 <script>
 (function(){
 'use strict';
