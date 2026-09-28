@@ -1,0 +1,1325 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111827"><title>🇯🇵 Giappone — Link rapidi</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f5f7;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}.wrap{max-width:720px;margin:auto;padding:16px 14px 50px}header{background:#111827;color:#fff;border-radius:20px;padding:20px;margin-bottom:16px}h1{font-size:24px;margin:0 0 6px}.sub{font-size:14px;opacity:.8;line-height:1.4}.search{display:block;width:100%;margin-top:15px;padding:14px 15px;border:0;border-radius:13px;font-size:16px;outline:none}section{margin:18px 0}h2{font-size:18px;margin:0 0 10px}.count{font-size:12px;background:#e5e7eb;color:#374151;border-radius:999px;padding:3px 8px}.card{background:#fff;border-radius:16px;padding:13px;margin:9px 0;box-shadow:0 1px 5px rgba(0,0,0,.07)}.name{font-weight:750;font-size:16px}.desc{font-size:14px;line-height:1.4;margin-top:5px}.note{font-size:12px;color:#6b7280;margin-top:6px}.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:11px}.btn{display:flex;align-items:center;justify-content:center;min-height:42px;border:0;border-radius:11px;text-decoration:none;font-weight:700;font-size:13px;cursor:pointer}.maps{background:#e8eefc;color:#174ea6}.share{background:#e7f6ea;color:#137333}.copy{background:#f0f0f0;color:#333}.copybox{position:relative}.copybox summary{list-style:none}.copybox summary::-webkit-details-marker{display:none}.copybox textarea{width:100%;min-height:58px;margin-top:6px;padding:8px;border:1px solid #ddd;border-radius:8px;font:12px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;resize:none}.warn{border-left:4px solid #f59e0b}.tip{font-size:13px;background:#fff7ed;border-radius:12px;padding:11px;margin:12px 0;color:#7c2d12}
+.selectbox{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:13px;font-weight:700;color:#374151}.selectbox input{width:20px;height:20px;accent-color:#16a34a}.select-actions{display:flex;gap:8px;margin-top:8px}.select-actions button{flex:1;min-height:38px;border:0;border-radius:10px;font-weight:700;cursor:pointer}.select-all{background:#eef2ff;color:#3730a3}.select-clear{background:#f3f4f6;color:#374151}.sharebar{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(690px,calc(100% - 24px));background:#111827;color:#fff;padding:10px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.25);display:none;z-index:1000;align-items:center;gap:9px}.sharebar.show{display:flex}.sharecount{flex:1;font-size:14px;font-weight:700}.shareselected{border:0;border-radius:11px;background:#22c55e;color:#052e16;font-weight:800;padding:11px 13px;cursor:pointer}.shareselected:disabled{opacity:.45}.section-tools{display:flex;gap:6px;flex-wrap:wrap}.section-select{border:0;border-radius:9px;background:#eef2ff;color:#3730a3;padding:7px 9px;font-weight:700;cursor:pointer;font-size:12px}body{padding-bottom:70px}<style>.hero{background:#111827;color:#fff;border-radius:20px;padding:20px;margin-bottom:16px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.tool{border:0;border-radius:10px;padding:9px 11px;background:#fff;color:#111827;font-weight:700;font-size:12px;cursor:pointer}.tool.active{background:#22c55e}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.filter{border:0;border-radius:999px;padding:8px 11px;background:#e5e7eb;color:#374151;font-weight:700;font-size:12px;cursor:pointer}.filter.active{background:#111827;color:#fff}.status{font-size:13px;color:#6b7280;margin:8px 2px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.meta{margin-top:8px}.tag{display:inline-block;font-size:11px;font-weight:800;background:#f3f4f6;border-radius:999px;padding:4px 7px;color:#4b5563}.empty{padding:30px 10px;text-align:center;color:#6b7280}</style></style></head><body><div class="wrap"><header class="hero"><h1>🇯🇵 Giappone — Link rapidi</h1><div class="sub">Lista organizzata per zona · nomi e descrizioni verificati quando possibile · i punti dubbi sono lasciati da controllare manualmente. · <span id="totalCount"></span></div><input aria-label="Cerca posto, zona o tipo" autocomplete="off" class="search" enterkeyhint="search" id="search" placeholder="🔎 Cerca posto, zona o tipo…" type="search"/><div class="toolbar"><button class="tool" id="nearBtn" type="button">📍 Vicino a me</button><button class="tool" id="foodBtn" type="button">🍜 Mangiare</button><button class="tool" id="seeBtn" type="button">⛩️ Vedere</button><button class="tool" id="favBtn" type="button">★ Preferiti</button><button class="tool" id="shareCurrentBtn" type="button">🔗 Condividi selezione</button></div></header><div class="filters" id="filters"><button class="filter active" data-filter="all" type="button">Tutti</button><button class="filter" data-filter="food" type="button">🍜 Food</button><button class="filter" data-filter="templi" type="button">⛩️ Templi</button><button class="filter" data-filter="musei" type="button">🏛️ Musei</button><button class="filter" data-filter="shopping" type="button">🛍️ Shopping</button><button class="filter" data-filter="cafe" type="button">☕ Café</button><button class="filter" data-filter="natura" type="button">🌳 Natura</button><button class="filter" data-filter="ritrovi" type="button">📍 Ritrovi</button><button class="filter" data-filter="attrazioni" type="button">✨ Attrazioni</button></div><div class="status" id="status">Tutti i posti</div><div class="tip">⚠️ I punti con indicazione “da controllare” non sono stati eliminati: meglio lasciarli in sospeso che rischiare di inserirli nella zona sbagliata.</div><div id="placesRoot"></div>
+<div class="empty" id="emptyState" style="display:none">Nessun luogo corrisponde alla ricerca.</div>
+<div class="sharebar" id="shareBar"><div class="sharecount" id="shareCount">0 luoghi selezionati</div><button class="shareselected" id="shareSelected" type="button" disabled>🟢 Condividi su WhatsApp</button></div>
+<button id="topBtn" type="button" style="position:fixed;right:14px;bottom:78px;border:0;border-radius:999px;background:#111827;color:#fff;width:42px;height:42px;font-size:18px;box-shadow:0 4px 18px rgba(0,0,0,.22);z-index:900">↑</button><script id="places-data" type="application/json">[
+  {
+    "nome": "Isomaru Suisan Ryogoku West Exit",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🐟 Ristorante di pesce e frutti di mare, molto informale",
+    "posizione": "1 Chome-3-12 Yokoami",
+    "maps": "https://maps.app.goo.gl/2smAMsXKHC89V2RU9"
+  },
+  {
+    "nome": "Marugame Seimen Ryogoku",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍜 Catena specializzata in udon preparati al momento",
+    "posizione": "1 Chome-3-13 Yokoami",
+    "maps": "https://maps.app.goo.gl/6RmDhEPh9PXVF3ty5"
+  },
+  {
+    "nome": "Irorian Kiraku",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍢 Izakaya / cucina giapponese, piatti e bevande",
+    "posizione": "1 Chome-3-3 Yokoami",
+    "maps": "https://maps.app.goo.gl/ANLdXRWDiD3DJ8Bk9"
+  },
+  {
+    "nome": "Yakiniku LIKE Ryogoku",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🥩 Yakiniku: carne alla griglia, anche in porzioni singole",
+    "posizione": "1 Chome-3-7 Yokoami",
+    "maps": "https://maps.app.goo.gl/cnvTyyctbd7YrjZB8"
+  },
+  {
+    "nome": "Sharin Ryogoku Sta. Branch",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍜 Tsukemen e ramen",
+    "posizione": "1 Chome-3-12 Yokoami",
+    "maps": "https://maps.app.goo.gl/sEE31oyCiptS5aou8"
+  },
+  {
+    "nome": "Matsuya Ryogoku",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍚 Catena giapponese: gyudon e piatti veloci con riso",
+    "posizione": "1 Chome-3-8 Yokoami",
+    "maps": "https://maps.app.goo.gl/RGP8fMtqfC6qARyC7"
+  },
+  {
+    "nome": "Kaburaya",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍢 Izakaya informale, spiedini e piatti da condividere",
+    "posizione": "1 Chome-3-7 Yokoami",
+    "maps": "https://maps.app.goo.gl/4EhaVL3wK5Xt2g4v9"
+  },
+  {
+    "nome": "Ichikatsu",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🥩 Tonkatsu: cotoletta di maiale impanata e fritta",
+    "posizione": "1 Chome-3-4 Yokoami",
+    "maps": "https://maps.app.goo.gl/sRsTYq3en7JC5KR7A"
+  },
+  {
+    "nome": "Ramen / gyoza / teishoku — Kojirō Ryogoku",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍜 Ramen, gyoza e teishoku",
+    "posizione": "3 Chome-25-6 Ryogoku",
+    "maps": "https://maps.app.goo.gl/hcMxpjzhdb8161g9A"
+  },
+  {
+    "nome": "Tori Mero Ryogoku Station Front",
+    "zona": "Ryogoku",
+    "categoria": "vedere",
+    "descrizione": "🍗 Pollo e spiedini di pollo",
+    "posizione": "3 Chome-26-5 Ryogoku",
+    "maps": "https://maps.app.goo.gl/KtFzjKtZPyuhtVbc8"
+  },
+  {
+    "nome": "Pepper Lunch Ryogoku",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🥩 Carne alla piastra servita con riso",
+    "posizione": "1 Chome-3-16 Yokoami",
+    "maps": "https://maps.app.goo.gl/f3Ayy4X4EoqLTAJ49"
+  },
+  {
+    "nome": "Utage Sushi",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍣 Ristorante di sushi",
+    "posizione": "3 Chome-23-9 Ryogoku",
+    "maps": "https://maps.app.goo.gl/kYgLS9KJk4Rqy5Z4A"
+  },
+  {
+    "nome": "Sushi Hojo",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍣 Sushi di fascia più alta",
+    "posizione": "4 Chome-28-2 Ryogoku",
+    "maps": "https://maps.app.goo.gl/r8LjiyozSkCRQKZi7"
+  },
+  {
+    "nome": "Torikizoku Ryogoku Store",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🍢 Catena di yakitori: spiedini di pollo",
+    "posizione": "3 Chome-26-5 Ryogoku",
+    "maps": "https://maps.app.goo.gl/j8CN9pQfotNfGhtm6"
+  },
+  {
+    "nome": "Drug store / Create SD JR Ryogoku East Exit",
+    "zona": "Ryogoku",
+    "categoria": "shopping",
+    "descrizione": "💊 Drugstore / farmacia e prodotti di uso quotidiano",
+    "posizione": "1 Chome-3-3 Yokoami",
+    "maps": "https://maps.app.goo.gl/NDHw9XLvX9Godfyc8"
+  },
+  {
+    "nome": "Maibasuketto Ryogokuekihigashiguchiten",
+    "zona": "Ryogoku",
+    "categoria": "food",
+    "descrizione": "🛒 Supermercato di quartiere aperto fino a tardi",
+    "posizione": "3 Chome-26-8 Ryogoku",
+    "maps": "https://maps.app.goo.gl/khBQ6A3DpJgB99er6"
+  },
+  {
+    "nome": "Ryogoku Kokugikan",
+    "zona": "Ryogoku",
+    "categoria": "attrazioni",
+    "descrizione": "✨ Arena principale del sumo a Ryogoku.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Ryogoku%20Kokugikan"
+  },
+  {
+    "nome": "Edo-Tokyo Museum",
+    "zona": "Ryogoku",
+    "categoria": "musei",
+    "descrizione": "🏛️ Museo dedicato alla storia e alla cultura di Tokyo.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Edo-Tokyo%20Museum"
+  },
+  {
+    "nome": "Former Yasuda Garden",
+    "zona": "Ryogoku",
+    "categoria": "natura",
+    "descrizione": "🌿 Giardino storico vicino al Kokugikan.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Former%20Yasuda%20Garden"
+  },
+  {
+    "nome": "Sensō-ji",
+    "zona": "Asakusa",
+    "categoria": "templi",
+    "descrizione": "⛩️ Grande tempio buddista, uno dei luoghi simbolo di Asakusa",
+    "posizione": "2 Chome-3-1 Asakusa",
+    "maps": "https://maps.app.goo.gl/S1kD8RXztGU4qWCLA"
+  },
+  {
+    "nome": "The Yogodo Hall",
+    "zona": "Asakusa",
+    "categoria": "templi",
+    "descrizione": "🏯 Edificio/area del complesso del Sensō-ji",
+    "posizione": "2 Chome-3-1 Asakusa",
+    "maps": "https://maps.app.goo.gl/GoJRbeAKry8uMLBV7"
+  },
+  {
+    "nome": "Asakusa Kagetsudō Melon Bread",
+    "zona": "Asakusa",
+    "categoria": "cafe",
+    "descrizione": "🍈 Dolce tipico: melonpan appena sfornato",
+    "posizione": "2 Chome-7-13 Asakusa",
+    "maps": "https://maps.app.goo.gl/Ex97Ufp2NXb8sWqt5"
+  },
+  {
+    "nome": "Tully’s Coffee Asakusa Shin-Nakamise",
+    "zona": "Asakusa",
+    "categoria": "cafe",
+    "descrizione": "☕ Caffè / catena, ideale per una pausa",
+    "posizione": "1 Chome-19-8 Asakusa",
+    "maps": "https://maps.app.goo.gl/3UD3y6WF93pXcBy57"
+  },
+  {
+    "nome": "Public Toilet",
+    "zona": "Asakusa",
+    "categoria": "ritrovi",
+    "descrizione": "🚻 Bagno pubblico",
+    "posizione": "2 Chome-3-3 Asakusa",
+    "maps": "https://maps.app.goo.gl/tdkEoZ4wtPYfrG9g8"
+  },
+  {
+    "nome": "Kaminarimon",
+    "zona": "Asakusa",
+    "categoria": "templi",
+    "descrizione": "⛩️ Grande porta d’ingresso all’area di Sensō-ji.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Kaminarimon"
+  },
+  {
+    "nome": "Nakamise-dori",
+    "zona": "Asakusa",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Storica via commerciale tra Kaminarimon e Sensō-ji.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Nakamise-dori"
+  },
+  {
+    "nome": "Sumida Park",
+    "zona": "Asakusa",
+    "categoria": "natura",
+    "descrizione": "🌿 Parco lungo il fiume Sumida, vicino ad Asakusa.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Sumida%20Park"
+  },
+  {
+    "nome": "Tokyo Skytree",
+    "zona": "Asakusa",
+    "categoria": "attrazioni",
+    "descrizione": "✨ Torre panoramica e attrazione simbolo dell’area Skytree.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Tokyo%20Skytree"
+  },
+  {
+    "nome": "Tonkatsu Yamabe",
+    "zona": "Ueno",
+    "categoria": "food",
+    "descrizione": "🥩 Ristorante specializzato in tonkatsu",
+    "posizione": "4 Chome-5-1 Ueno",
+    "maps": "https://maps.app.goo.gl/xK8ouWB12FF4ywG37"
+  },
+  {
+    "nome": "SUSHIRO Ueno",
+    "zona": "Ueno",
+    "categoria": "food",
+    "descrizione": "🍣 Catena di sushi kaiten",
+    "posizione": "6 Chome-9-9 Ueno",
+    "maps": "https://maps.app.goo.gl/aPKw1uYLnvNX9jMk6"
+  },
+  {
+    "nome": "Ramen Kamo to Negi Ueno Okachimachi",
+    "zona": "Ueno",
+    "categoria": "food",
+    "descrizione": "🍜 Ramen, specialità a base di anatra e cipollotto",
+    "posizione": "6 Chome-4-15 Ueno",
+    "maps": "https://maps.app.goo.gl/mAnxKbHNjVh1TzV96"
+  },
+  {
+    "nome": "Tempura Miya Ueno Ekimae",
+    "zona": "Ueno",
+    "categoria": "food",
+    "descrizione": "🍤 Ristorante specializzato in tempura",
+    "posizione": "6 Chome-14-7 Ueno",
+    "maps": "https://maps.app.goo.gl/JP47FCiLWENSzDmt6"
+  },
+  {
+    "nome": "Marugame Seimen Uenochuo Street",
+    "zona": "Ueno",
+    "categoria": "food",
+    "descrizione": "🍜 Catena specializzata in udon",
+    "posizione": "4 Chome-9-6 Ueno",
+    "maps": "https://maps.app.goo.gl/VmhrRoLFcWkhdhKR6"
+  },
+  {
+    "nome": "Sushi Tsune",
+    "zona": "Ueno",
+    "categoria": "food",
+    "descrizione": "🍣 Ristorante di sushi",
+    "posizione": "7 Chome-1-1 Ueno",
+    "maps": "https://maps.app.goo.gl/9hsgtdF14tLMWeYP6"
+  },
+  {
+    "nome": "Rokurinsha Ueno",
+    "zona": "Ueno",
+    "categoria": "food",
+    "descrizione": "🍜 Famoso per tsukemen, ramen da intingere",
+    "posizione": "7 Chome-1-1 Ueno",
+    "maps": "https://maps.app.goo.gl/aEkvhWgqnmBhqcpY8"
+  },
+  {
+    "nome": "Nikujiru Gyoza Dandadan Higashiueno",
+    "zona": "Ueno",
+    "categoria": "food",
+    "descrizione": "🥟 Gyoza succosi e cucina casual",
+    "posizione": "3 Chome-17-8 Higashiueno",
+    "maps": "https://maps.app.goo.gl/PmbsZqnULhZNHbZ36"
+  },
+  {
+    "nome": "Beef Cutlet AONA Okachimachi",
+    "zona": "Ueno",
+    "categoria": "vedere",
+    "descrizione": "🥩 Gyukatsu: cotoletta di manzo impanata",
+    "posizione": "6 Chome-5-7 Ueno",
+    "maps": "https://maps.app.goo.gl/fYQBY6m2Pj5ias8Y6"
+  },
+  {
+    "nome": "Ueno Zoo",
+    "zona": "Ueno",
+    "categoria": "natura",
+    "descrizione": "🦁 Zoo, il più antico del Giappone",
+    "posizione": "9-83 Uenokoen",
+    "maps": "https://maps.app.goo.gl/n6cyaZ3VWdaSbhBv8"
+  },
+  {
+    "nome": "Ueno Toshogu Shrine",
+    "zona": "Ueno",
+    "categoria": "templi",
+    "descrizione": "⛩️ Santuario shintoista storico; ingresso indicato: 700 yen",
+    "posizione": "9-88 Uenokoen",
+    "maps": "https://maps.app.goo.gl/An1Y9Q7XEodeJGpNA"
+  },
+  {
+    "nome": "Shinobazu no Ike Bentendō",
+    "zona": "Ueno",
+    "categoria": "templi",
+    "descrizione": "⛩️ Tempio Benten-dō su un’isola del laghetto Shinobazu",
+    "posizione": "2-1 Uenokoen",
+    "maps": "https://maps.app.goo.gl/uTr8hRCzruMkzNof7"
+  },
+  {
+    "nome": "Tokyo National Museum",
+    "zona": "Ueno",
+    "categoria": "musei",
+    "descrizione": "🏛️ Museo nazionale con arte e reperti del Giappone",
+    "posizione": "13-9 Uenokoen",
+    "maps": "https://maps.app.goo.gl/xon1eiWRhjSSZeRf9"
+  },
+  {
+    "nome": "Tokyo Metropolitan Art Museum",
+    "zona": "Ueno",
+    "categoria": "musei",
+    "descrizione": "🎨 Museo d’arte con mostre temporanee",
+    "posizione": "8-36 Uenokoen",
+    "maps": "https://maps.app.goo.gl/fBriccnGsuJ8t9Tc6"
+  },
+  {
+    "nome": "National Museum of Nature and Science",
+    "zona": "Ueno",
+    "categoria": "musei",
+    "descrizione": "🔬 Museo di scienza, natura e tecnologia",
+    "posizione": "7-20 Uenokoen",
+    "maps": "https://maps.app.goo.gl/ygDs1HunmhvmE8gB6"
+  },
+  {
+    "nome": "Ameyoko",
+    "zona": "Ueno",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Mercato e via commerciale vivace tra Ueno e Okachimachi",
+    "posizione": "35.7113978,139.7746211",
+    "maps": "https://maps.app.goo.gl/KioXAZ9eEwqN7ins6"
+  },
+  {
+    "nome": "Kiyomizu Kannon-dō Temple",
+    "zona": "Ueno",
+    "categoria": "templi",
+    "descrizione": "⛩️ Tempio buddista di Ueno ispirato al Kiyomizu-dera di Kyoto",
+    "posizione": "1 Chome-29 Uenokoen",
+    "maps": "https://maps.app.goo.gl/xtvztbYHJWngDgnc6"
+  },
+  {
+    "nome": "Gojo Ten and Hanazono Inari Shrines",
+    "zona": "Ueno",
+    "categoria": "templi",
+    "descrizione": "⛩️ Due santuari shintoisti nel parco di Ueno",
+    "posizione": "4-17 Uenokoen",
+    "maps": "https://maps.app.goo.gl/dEQVo5PYecsFCT6U7"
+  },
+  {
+    "nome": "Ueno Park",
+    "zona": "Ueno",
+    "categoria": "natura",
+    "descrizione": "🌿 Grande parco con zoo, musei e Shinobazu Pond.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Ueno%20Park"
+  },
+  {
+    "nome": "Nezu-jinja Shrine",
+    "zona": "Yanaka / Nezu",
+    "categoria": "templi",
+    "descrizione": "⛩️ Santuario storico immerso nel verde, con percorso di torii.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Nezu-jinja%20Shrine"
+  },
+  {
+    "nome": "Yanaka Ginza",
+    "zona": "Yanaka / Nezu",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Via commerciale tradizionale nel quartiere di Yanaka.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Yanaka%20Ginza"
+  },
+  {
+    "nome": "ABC-MART Atre Akihabara 1",
+    "zona": "Akihabara",
+    "categoria": "shopping",
+    "descrizione": "👟 Negozio di scarpe e sneakers",
+    "posizione": "1 Chome-17-6 Sotokanda",
+    "maps": "https://maps.app.goo.gl/ZwFP1iJfVEosvZgJ7"
+  },
+  {
+    "nome": "Cat Cafe MOCHA Harajuku",
+    "zona": "Harajuku",
+    "categoria": "cafe",
+    "descrizione": "🐱 Cat café: caffè dove stare con i gatti",
+    "posizione": "1 Chome-14-25 Jingumae",
+    "maps": "https://maps.app.goo.gl/PRmEM6AEe3KXGZRC7"
+  },
+  {
+    "nome": "Dog Cafe RIO",
+    "zona": "Harajuku",
+    "categoria": "cafe",
+    "descrizione": "🐶 Dog café: locale dove stare e interagire con i cani",
+    "posizione": "1 Chome-16-1 Jingumae",
+    "maps": "https://maps.app.goo.gl/Jimh5xetnXPsX15N8"
+  },
+  {
+    "nome": "Samoedo Cafe “超！サモエド” Harajuku",
+    "zona": "Harajuku",
+    "categoria": "cafe",
+    "descrizione": "🐕 Café dedicato ai Samoiedo",
+    "posizione": "1 Chome-16-2 Jingumae",
+    "maps": "https://maps.app.goo.gl/aFUX4SawAskJ3qWk8"
+  },
+  {
+    "nome": "mipig cafe Harajuku",
+    "zona": "Harajuku",
+    "categoria": "cafe",
+    "descrizione": "🐷 Café con maialini in miniatura",
+    "posizione": "1 Chome-15-4 Jingumae",
+    "maps": "https://maps.app.goo.gl/XsaHE9JTSqZcDbTF9"
+  },
+  {
+    "nome": "capybaraonsen mofmofu Tokyo",
+    "zona": "Harajuku",
+    "categoria": "cafe",
+    "descrizione": "🦫 Animal café con capibara",
+    "posizione": "1 Chome-6-9 Jingumae",
+    "maps": "https://maps.app.goo.gl/V8KSLLXLYBKFobEw6"
+  },
+  {
+    "nome": "Harajuku Mame Shiba Cafe",
+    "zona": "Harajuku",
+    "categoria": "cafe",
+    "descrizione": "🐕 Café con Mame Shiba, piccoli cani Shiba Inu",
+    "posizione": "1 Chome-6-10 Jingumae",
+    "maps": "https://maps.app.goo.gl/XFMVNX2J21DwGLxC6"
+  },
+  {
+    "nome": "Galaxy Harajuku (Samsung)",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "📱 Experience store / showroom Samsung Galaxy",
+    "posizione": "1 Chome-8-9 Jingumae",
+    "maps": "https://maps.app.goo.gl/UgsDfoZmK3ZPnRSg6"
+  },
+  {
+    "nome": "Apple Omotesando",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "🍎 Apple Store",
+    "posizione": "4 Chome-2-13 Jingumae",
+    "maps": "https://maps.app.goo.gl/tW7aAPF2qiqpgjm36"
+  },
+  {
+    "nome": "Harry Potter Shop Harajuku",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "🪄 Negozio ufficiale a tema Harry Potter",
+    "posizione": "6 Chome-31-17 Jingumae",
+    "maps": "https://maps.app.goo.gl/ocExcF678exUYMUB7"
+  },
+  {
+    "nome": "Sailor Moon Store",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "🌙 Negozio ufficiale dedicato a Sailor Moon",
+    "posizione": "1 Chome-11-6 Jingumae",
+    "maps": "https://maps.app.goo.gl/tWWukf1wE5ZKU9MG8"
+  },
+  {
+    "nome": "ONE PIECE Mugiwara Store Harajuku",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "🏴‍☠️ Negozio ufficiale dedicato a One Piece",
+    "posizione": "6 Chome-31-21 Jingumae",
+    "maps": "https://maps.app.goo.gl/UZw4ZuorLw2eeFM87"
+  },
+  {
+    "nome": "Tokyu Plaza Harajuku “HARAKADO”",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "🏬 Centro commerciale con negozi, ristoranti e spazi creativi",
+    "posizione": "6 Chome-31-21 Jingumae",
+    "maps": "https://maps.app.goo.gl/Yypu6Nk19G7ZD593A"
+  },
+  {
+    "nome": "UNIQLO Harajuku",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "👕 Negozio di abbigliamento UNIQLO",
+    "posizione": "1 Chome-14-30 Jingumae",
+    "maps": "https://maps.app.goo.gl/pc88sLwv6mwSniZK6"
+  },
+  {
+    "nome": "Eataly Harajuku",
+    "zona": "Harajuku",
+    "categoria": "food",
+    "descrizione": "🍝 Gastronomia, ristorante e prodotti italiani",
+    "posizione": "1 Chome-14-30 Jingumae",
+    "maps": "https://maps.app.goo.gl/zR7briU6sNYCgFbr9"
+  },
+  {
+    "nome": "Kyushu Jangara Ramen Harajuku",
+    "zona": "Harajuku",
+    "categoria": "food",
+    "descrizione": "🍜 Ramen in stile Kyushu",
+    "posizione": "1 Chome-13-21 Jingumae",
+    "maps": "https://maps.app.goo.gl/4pRKFgRPCs8TW9wt9"
+  },
+  {
+    "nome": "Tonkatsu Maisen Aoyama",
+    "zona": "Harajuku",
+    "categoria": "food",
+    "descrizione": "🥩 Storico ristorante specializzato in tonkatsu",
+    "posizione": "4 Chome-8-5 Jingumae",
+    "maps": "https://maps.app.goo.gl/8m2gZuLUf8j9J3Pt9"
+  },
+  {
+    "nome": "Gonpachi Nori-temaki Harajuku",
+    "zona": "Harajuku",
+    "categoria": "food",
+    "descrizione": "🍣 Temaki: sushi arrotolato a mano",
+    "posizione": "6 Chome-35-3 Jingumae",
+    "maps": "https://maps.app.goo.gl/Y9UTm6jAYxHsRchU6"
+  },
+  {
+    "nome": "Harajuku Gyozarou",
+    "zona": "Harajuku",
+    "categoria": "food",
+    "descrizione": "🥟 Ristorante specializzato in gyoza",
+    "posizione": "6 Chome-2-4 Jingumae",
+    "maps": "https://maps.app.goo.gl/3WgtuNARL7GNw6st6"
+  },
+  {
+    "nome": "Harajuku Okonomiyaki Yai-yai",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "🥞 Okonomiyaki, specialità giapponese cotta alla piastra",
+    "posizione": "6 Chome-8-7 Jingumae",
+    "maps": "https://maps.app.goo.gl/oinWGYLRJH8FUUcAA"
+  },
+  {
+    "nome": "Kaiten-zushi Tuna Wholesale Shop Blessed HARAKADO",
+    "zona": "Harajuku",
+    "categoria": "food",
+    "descrizione": "🍣 Sushi kaiten / nastro trasportatore",
+    "posizione": "6 Chome-31-21 Jingumae",
+    "maps": "https://maps.app.goo.gl/2BuVf4nLB2YuTYKXA"
+  },
+  {
+    "nome": "Takeshita Street",
+    "zona": "Harajuku",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Via pedonale famosa per shopping, moda e street food",
+    "posizione": "35.6715637,139.7031952",
+    "maps": "https://maps.app.goo.gl/mJKhycTZx7muE6sf8"
+  },
+  {
+    "nome": "DAISO Harajuku Store",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "🛍️ Negozio 100 yen / articoli per casa e piccoli acquisti",
+    "posizione": "1 Chome-19-24 Jingumae",
+    "maps": "https://maps.app.goo.gl/e2Rs5Jx5XBhzNrPK9"
+  },
+  {
+    "nome": "Meiji Jingu",
+    "zona": "Harajuku",
+    "categoria": "templi",
+    "descrizione": "⛩️ Grande santuario immerso nella foresta tra Harajuku e Yoyogi.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Meiji%20Jingu"
+  },
+  {
+    "nome": "Yoyogi Park",
+    "zona": "Harajuku",
+    "categoria": "natura",
+    "descrizione": "🌿 Grande parco accanto a Meiji Jingu.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Yoyogi%20Park"
+  },
+  {
+    "nome": "Omote-Sando Ave",
+    "zona": "Harajuku",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Grande viale di shopping e passeggio tra Harajuku e Aoyama.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Omote-Sando%20Ave"
+  },
+  {
+    "nome": "Cat Street",
+    "zona": "Harajuku",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Via pedonale/commerciale tra Harajuku e Shibuya.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Cat%20Street"
+  },
+  {
+    "nome": "Shibuya Scramble Crossing",
+    "zona": "Harajuku",
+    "categoria": "attrazioni",
+    "descrizione": "✨ Celebre incrocio pedonale di Shibuya.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Shibuya%20Scramble%20Crossing"
+  },
+  {
+    "nome": "ReFa",
+    "zona": "Omotesando",
+    "categoria": "templi",
+    "descrizione": "✨ Negozio beauty ReFa, prodotti per cura personale",
+    "posizione": "4 Chome-12-10 Jingumae",
+    "maps": "https://maps.app.goo.gl/osZkSFTHa6Bq3JXz8"
+  },
+  {
+    "nome": "Tenryū-ji",
+    "zona": "Arashiyama",
+    "categoria": "templi",
+    "descrizione": "⛩️ Grande tempio zen di Arashiyama, con giardini",
+    "posizione": "68 Sagatenryuji Susukinobabacho",
+    "maps": "https://maps.app.goo.gl/5Lbmf19Z4e6xjsF46"
+  },
+  {
+    "nome": "Okochi Sanso Garden",
+    "zona": "Arashiyama",
+    "categoria": "vedere",
+    "descrizione": "🌿 Villa storica con splendidi giardini e vista su Kyoto",
+    "posizione": "8 Sagaogurayama Tabuchiyamacho",
+    "maps": "https://maps.app.goo.gl/bXmVnf5xp6jnPSoi7"
+  },
+  {
+    "nome": "Arashiyama Park viewpoint",
+    "zona": "Arashiyama",
+    "categoria": "natura",
+    "descrizione": "🌄 Punto panoramico sul paesaggio di Arashiyama",
+    "posizione": "6 Sagakamenoocho",
+    "maps": "https://maps.app.goo.gl/bov2xDt9dnX52fFV7"
+  },
+  {
+    "nome": "Sotetsu Fresa Inn Kyoto-Kiyomizu Gojo",
+    "zona": "Kyoto — Gojo",
+    "categoria": "ritrovi",
+    "descrizione": "🏨 Hotel",
+    "posizione": "391-1 Shiogamacho",
+    "maps": "https://maps.app.goo.gl/x1MbwSFGphQ9WjeQA"
+  },
+  {
+    "nome": "Ritrovo — punto originale",
+    "zona": "Kyoto — Kinkaku-ji",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Punto di ritrovo indicato nel messaggio originale; destinazione da verificare.",
+    "posizione": "Kinukake-no-Michi, Kinugasa Babacho",
+    "maps": "https://maps.app.goo.gl/zCGoN4tLRsPD4Fca7"
+  },
+  {
+    "nome": "Il santuario",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "⛩️ Santuario — posizione da verificare",
+    "posizione": "Link non ancora risolto in modo affidabile",
+    "maps": "https://maps.app.goo.gl/GwYdQRLS95oPV5XM7"
+  },
+  {
+    "nome": "Timbro tempio",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "🛕 Punto per timbro/goshuin — tempio da verificare",
+    "posizione": "Link non ancora risolto in modo affidabile",
+    "maps": "https://maps.app.goo.gl/viYqAU14EXJ6Phvj7"
+  },
+  {
+    "nome": "Bagni pubblici nel parco del tempio",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "🚻 Bagni pubblici — posizione da verificare",
+    "posizione": "Link non ancora risolto in modo affidabile",
+    "maps": "https://maps.app.goo.gl/axGgpguVLEaXh2MG7"
+  },
+  {
+    "nome": "Ci troviamo qui alle 12:00",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Punto di ritrovo — posizione da verificare",
+    "posizione": "Link non ancora risolto in modo affidabile",
+    "maps": "https://maps.app.goo.gl/GJN9deCR6iUrrmsAA"
+  },
+  {
+    "nome": "Adesso andiamo qui",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Punto di passaggio — posizione da verificare",
+    "posizione": "Link non ancora risolto in modo affidabile",
+    "maps": "https://maps.app.goo.gl/4uK56Za4WcdWPJmz7"
+  },
+  {
+    "nome": "Udon",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "🍜 Ristorante di udon — posizione da verificare",
+    "posizione": "Link non ancora risolto in modo affidabile",
+    "maps": "https://maps.app.goo.gl/KPXVfV624w1c5Zqv7"
+  },
+  {
+    "nome": "Link qDB — nome da verificare",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "Link conservato dall’elenco originale; nome/localizzazione da controllare manualmente.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=https%3A//maps.app.goo.gl/qDBpQaFrW3P8B1YXA"
+  },
+  {
+    "nome": "Link gkv — nome da verificare",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "Link conservato dall’elenco originale; nome/localizzazione da controllare manualmente.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=https%3A//maps.app.goo.gl/gkv2HuEoovaJ3zhz7"
+  },
+  {
+    "nome": "Link KZc — zona serale da verificare",
+    "zona": "Da verificare",
+    "categoria": "ritrovi",
+    "descrizione": "Nel messaggio originale era indicato come zona carina per la sera; non lo assegno a Sensō-ji.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=https%3A//maps.app.goo.gl/KZc2NWRkDgB7jFwS9"
+  },
+  {
+    "nome": "🗻 Monte Fuji",
+    "zona": "Fuji 1",
+    "categoria": "templi",
+    "descrizione": "🗻 Punto panoramico/area del Monte Fuji.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/nzByNyo26StC3rxn8"
+  },
+  {
+    "nome": "Kobe Beef Steak Mouriya Gion",
+    "zona": "Kyoto / Gion 1",
+    "categoria": "food",
+    "descrizione": "🥩 Ristorante teppanyaki specializzato in autentica carne di Kobe.",
+    "posizione": "Gion, Kyoto",
+    "maps": "https://maps.app.goo.gl/Ssqn3MB785GPeadB6"
+  },
+  {
+    "nome": "Ingresso Foresta di Bambù",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "natura",
+    "descrizione": "🎋 Ingresso alla famosa foresta di bambù di Arashiyama.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/yoz5CKagQnDiL8dG7"
+  },
+  {
+    "nome": "Iwatayama Monkey Park",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "natura",
+    "descrizione": "🐒 Parco sulla collina con macachi giapponesi.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/mq1RDebFbK2Rd2Gt7"
+  },
+  {
+    "nome": "Kimono Forest",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "natura",
+    "descrizione": "👘 Installazione con cilindri decorati con tessuti di kimono.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/LkNCF8m1fWkLZLLf7"
+  },
+  {
+    "nome": "Tully’s Coffee Randen Arashiyama Station",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "cafe",
+    "descrizione": "☕ Caffetteria alla stazione Randen di Arashiyama.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/9MDrqA2UrnSWfJQu5"
+  },
+  {
+    "nome": "% Arabica Kyoto Arashiyama",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "cafe",
+    "descrizione": "☕ Caffetteria famosa; nel messaggio era segnalata la coda.",
+    "posizione": "Sempre affollato secondo il messaggio originale",
+    "maps": "https://maps.app.goo.gl/cXT3K51WNuYF1SMG7"
+  },
+  {
+    "nome": "Ookini Kimono Rental Arashiyama",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "shopping",
+    "descrizione": "👘 Noleggio kimono.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/XmrqGjQNePBLwzM47"
+  },
+  {
+    "nome": "Kyolan Kimono Rental & Sale",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "shopping",
+    "descrizione": "👘 Noleggio e vendita di kimono.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/sZtoFxGiX5wLj9RPA"
+  },
+  {
+    "nome": "Yume Kyoto Togetsukyo",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "vedere",
+    "descrizione": "👘 Noleggio kimono nella zona di Togetsukyo.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/4oKC65brcj1tvVpU8"
+  },
+  {
+    "nome": "Togetsukyo Bridge",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "attrazioni",
+    "descrizione": "✨ Ponte simbolo di Arashiyama sul fiume Katsura.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Togetsukyo%20Bridge"
+  },
+  {
+    "nome": "Sagano Romantic Train",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "attrazioni",
+    "descrizione": "✨ Treno panoramico lungo la valle dell’Hozu.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Sagano%20Romantic%20Train"
+  },
+  {
+    "nome": "Hozugawa River Boat Ride",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "natura",
+    "descrizione": "🌿 Escursione in barca sul fiume Hozu.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Hozugawa%20River%20Boat%20Ride"
+  },
+  {
+    "nome": "Jōjakkōji Temple",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "templi",
+    "descrizione": "⛩️ Tempio buddhista nella zona di Sagano.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=J%C5%8Djakk%C5%8Dji%20Temple"
+  },
+  {
+    "nome": "Giōji Temple",
+    "zona": "Kyoto / Arashiyama 8",
+    "categoria": "templi",
+    "descrizione": "⛩️ Piccolo tempio famoso per il giardino di muschio.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Gi%C5%8Dji%20Temple"
+  },
+  {
+    "nome": "Casa di Ciro Karasuma",
+    "zona": "Kyoto / Karasuma 1",
+    "categoria": "food",
+    "descrizione": "🍕 Ristorante italiano/pizzeria.",
+    "posizione": "Senza prenotazione: secondo il messaggio originale spesso pieno",
+    "maps": "https://maps.app.goo.gl/DL56efyPNPTqRCWQ8"
+  },
+  {
+    "nome": "Goshuinsho – punto timbri",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "templi",
+    "descrizione": "🖋️ Punto per goshuin/timbri del santuario.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/W7MxKWg7dMJBKiEJ7"
+  },
+  {
+    "nome": "Bagno pubblico – punto verificato",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "ritrovi",
+    "descrizione": "🚻 Punto bagno/pubblico; nome non restituito dal link.",
+    "posizione": "Coordinate restituite dal link; da controllare manualmente",
+    "maps": "https://maps.app.goo.gl/GdztUmqc48o6cYU48"
+  },
+  {
+    "nome": "Punto street food / ristoranti – da controllare",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "ritrovi",
+    "descrizione": "🍢 Zona indicata nel messaggio come strada di street food e ristoranti.",
+    "posizione": "Coordinate restituite dal link; da controllare manualmente",
+    "maps": "https://maps.app.goo.gl/8jNAxb5AkYVgvQXL8"
+  },
+  {
+    "nome": "Hanaya",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "food",
+    "descrizione": "🍜 Ristorante di udon.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/c6U6r1ivpWff37Fb7"
+  },
+  {
+    "nome": "Chukasoba Umiya",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "food",
+    "descrizione": "🍜 Ristorante di ramen/chukasoba, riso e gyoza.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/rDiixQpcsJL1cDn77"
+  },
+  {
+    "nome": "Kanoko",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "food",
+    "descrizione": "🍤 Ristorante con tempura e udon.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/Q3Ej8qXou4ziLADZ9"
+  },
+  {
+    "nome": "Punto tra i due passaggi a livello – da controllare",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Zona indicata nel messaggio come area con altri ristoranti.",
+    "posizione": "Coordinate restituite dal link; da controllare manualmente",
+    "maps": "https://maps.app.goo.gl/JpvFXHya1U8xjvtH7"
+  },
+  {
+    "nome": "Fushimi Inari Taisha",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "templi",
+    "descrizione": "⛩️ Santuario principale di Fushimi Inari, celebre per i torii rossi.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Fushimi%20Inari%20Taisha"
+  },
+  {
+    "nome": "Senbon Torii",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "templi",
+    "descrizione": "⛩️ Percorso dei migliaia di torii sul Monte Inari.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Senbon%20Torii"
+  },
+  {
+    "nome": "Yotsutsuji Viewpoint",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "natura",
+    "descrizione": "🌿 Punto panoramico sul percorso del Monte Inari.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Yotsutsuji%20Viewpoint"
+  },
+  {
+    "nome": "Fushimi Inari Omotesando",
+    "zona": "Kyoto / Fushimi Inari 7",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Viale di accesso al santuario con negozi e ristoranti.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Fushimi%20Inari%20Omotesando"
+  },
+  {
+    "nome": "Kiyomizu-dera",
+    "zona": "Kyoto / Higashiyama 1",
+    "categoria": "vedere",
+    "descrizione": "🛕 Uno dei templi più famosi di Kyoto.",
+    "posizione": "Ingresso indicato nel messaggio: 500 yen",
+    "maps": "https://maps.app.goo.gl/ypcLebf3oTNTJ3f59"
+  },
+  {
+    "nome": "Ninenzaka",
+    "zona": "Kyoto / Higashiyama 1",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Storica strada in salita nell’area di Higashiyama.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Ninenzaka"
+  },
+  {
+    "nome": "Sannenzaka",
+    "zona": "Kyoto / Higashiyama 1",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Storica strada in salita tra Kiyomizu-dera e Ninenzaka.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Sannenzaka"
+  },
+  {
+    "nome": "Yasaka Pagoda (Hōkan-ji)",
+    "zona": "Kyoto / Higashiyama 1",
+    "categoria": "templi",
+    "descrizione": "⛩️ Pagoda di Hōkan-ji, uno dei simboli di Higashiyama.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Yasaka%20Pagoda%20%28H%C5%8Dkan-ji%29"
+  },
+  {
+    "nome": "Yasaka-jinja Shrine",
+    "zona": "Kyoto / Higashiyama 1",
+    "categoria": "templi",
+    "descrizione": "⛩️ Grande santuario nel cuore dell’area Gion/Higashiyama.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Yasaka-jinja%20Shrine"
+  },
+  {
+    "nome": "Maruyama Park",
+    "zona": "Kyoto / Higashiyama 1",
+    "categoria": "natura",
+    "descrizione": "🌿 Parco storico accanto a Yasaka-jinja.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Maruyama%20Park"
+  },
+  {
+    "nome": "Gion",
+    "zona": "Kyoto / Higashiyama 1",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Quartiere storico di Kyoto legato alle tradizioni delle geiko.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Gion"
+  },
+  {
+    "nome": "Raigō-in – punto di ritrovo",
+    "zona": "Kyoto / Da verificare 1",
+    "categoria": "ritrovi",
+    "descrizione": "🛕 Il link risulta associato a Raigō-in; usato nel messaggio come punto di ritrovo.",
+    "posizione": "Da controllare manualmente prima di inserirlo come luogo da visitare",
+    "maps": "https://maps.app.goo.gl/Qsa4vaDaaS8U5PV57"
+  },
+  {
+    "nome": "Teramachi",
+    "zona": "Kyoto / Centro 1",
+    "categoria": "templi",
+    "descrizione": "🛍️ Via/area commerciale con negozi e ristoranti.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/bdafjfYxokTmDdWU6"
+  },
+  {
+    "nome": "Kasuga Taisha",
+    "zona": "Nara 2",
+    "categoria": "templi",
+    "descrizione": "⛩️ Importante santuario shintoista di Nara.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/169k9dvdY49p7xTD7"
+  },
+  {
+    "nome": "Cafe CONCE",
+    "zona": "Nara 2",
+    "categoria": "food",
+    "descrizione": "☕ Café/caffetteria e ristorante.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/WedZy1Nfqwg4CA4s9"
+  },
+  {
+    "nome": "Nara Park",
+    "zona": "Nara 2",
+    "categoria": "natura",
+    "descrizione": "🌿 Grande parco famoso per i cervi in libertà e i templi storici.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Nara%20Park"
+  },
+  {
+    "nome": "Kōfuku-ji",
+    "zona": "Nara 2",
+    "categoria": "templi",
+    "descrizione": "⛩️ Tempio storico nell’area centrale di Nara.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=K%C5%8Dfuku-ji"
+  },
+  {
+    "nome": "Naramachi",
+    "zona": "Nara 2",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Quartiere storico con case tradizionali, negozi e caffè.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Naramachi"
+  },
+  {
+    "nome": "Tōdai-ji Monzen Yumekazehiroba Parking Lot",
+    "zona": "Nara / Tōdai-ji 1",
+    "categoria": "templi",
+    "descrizione": "🅿️ Parcheggio/zona servizi vicino al Tōdai-ji.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/kiWLRejci8sfEJq66"
+  },
+  {
+    "nome": "Nigatsudō",
+    "zona": "Nara / Tōdai-ji 1",
+    "categoria": "templi",
+    "descrizione": "⛩️ Tempio del complesso Tōdai-ji con vista sulla città.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Nigatsud%C5%8D"
+  },
+  {
+    "nome": "Sotetsu Fresa Inn Osaka-Shinsaibashi",
+    "zona": "Osaka / Shinsaibashi 3",
+    "categoria": "ritrovi",
+    "descrizione": "🏨 Hotel.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/jPNcEhyUStjGZVjQ8"
+  },
+  {
+    "nome": "America-mura",
+    "zona": "Osaka / Shinsaibashi 3",
+    "categoria": "shopping",
+    "descrizione": "🇺🇸 Quartiere giovane con street fashion, shopping e cultura pop.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/JabBf17BE5Xtpmnk9"
+  },
+  {
+    "nome": "Ten-carat – Osaka Tempura",
+    "zona": "Osaka / Shinsaibashi 3",
+    "categoria": "food",
+    "descrizione": "🍤 Ristorante specializzato in tempura.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/Xjk47CMPcXDNTRu26"
+  },
+  {
+    "nome": "Shinsaibashi-suji",
+    "zona": "Osaka / Shinsaibashi 3",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Lunga galleria commerciale nel cuore di Osaka.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Shinsaibashi-suji"
+  },
+  {
+    "nome": "GYOZA NINONI – Souemoncho",
+    "zona": "Osaka / Namba 3",
+    "categoria": "food",
+    "descrizione": "🥟 Ristorante di gyoza e cucina giapponese/cinese.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/GZCdy3t3GiZpmmeG7"
+  },
+  {
+    "nome": "Robatayaki Isshin",
+    "zona": "Osaka / Namba 3",
+    "categoria": "food",
+    "descrizione": "🍢 Izakaya/robata con cucina giapponese.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/Xq3gkLNywRAakdCD8"
+  },
+  {
+    "nome": "Namba Yasaka Jinja",
+    "zona": "Osaka / Namba 3",
+    "categoria": "templi",
+    "descrizione": "⛩️ Santuario shintoista famoso per l’enorme testa di leone.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/PdaaAaXZ9ShZpk1m8"
+  },
+  {
+    "nome": "Dotonbori",
+    "zona": "Osaka / Namba 3",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Area iconica di Namba con insegne, ristoranti e vita serale.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Dotonbori"
+  },
+  {
+    "nome": "Glico Man",
+    "zona": "Osaka / Namba 3",
+    "categoria": "attrazioni",
+    "descrizione": "✨ Celebre insegna di Dotonbori.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Glico%20Man"
+  },
+  {
+    "nome": "Hozenji Yokocho",
+    "zona": "Osaka / Namba 3",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Vicolo storico in pietra con ristoranti e bar.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Hozenji%20Yokocho"
+  },
+  {
+    "nome": "Hozenji Temple",
+    "zona": "Osaka / Namba 3",
+    "categoria": "templi",
+    "descrizione": "⛩️ Piccolo tempio di Namba noto per il Fudo coperto di muschio.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Hozenji%20Temple"
+  },
+  {
+    "nome": "Shinsekai",
+    "zona": "Osaka / Shinsekai 1",
+    "categoria": "vedere",
+    "descrizione": "🏮 Quartiere storico e popolare di Osaka, dall’atmosfera rétro.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/ZJ2iRNbAnpyVDhoA9"
+  },
+  {
+    "nome": "Tsutenkaku",
+    "zona": "Osaka / Shinsekai 1",
+    "categoria": "attrazioni",
+    "descrizione": "✨ Torre simbolo di Shinsekai.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Tsutenkaku"
+  },
+  {
+    "nome": "Janjan Yokocho",
+    "zona": "Osaka / Shinsekai 1",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Galleria storica di Shinsekai con kushikatsu e locali.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Janjan%20Yokocho"
+  },
+  {
+    "nome": "Denden Town",
+    "zona": "Osaka / Nipponbashi 1",
+    "categoria": "vedere",
+    "descrizione": "🎮 Zona di elettronica, anime, manga e videogiochi.",
+    "posizione": "La “Akihabara di Osaka”",
+    "maps": "https://maps.app.goo.gl/jGaUBq7mGzHef9Wp7"
+  },
+  {
+    "nome": "Tennoji Zoo",
+    "zona": "Osaka / Tennoji 1",
+    "categoria": "templi",
+    "descrizione": "🦁 Zoo cittadino.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/WzVaZbkfqcZJTBpm7"
+  },
+  {
+    "nome": "Osaka Aquarium Kaiyukan",
+    "zona": "Osaka / Tempozan 1",
+    "categoria": "natura",
+    "descrizione": "🐠 Grande acquario di Osaka.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/uZkRYbJeMbP6dBAc9"
+  },
+  {
+    "nome": "Umeda Sky Building",
+    "zona": "Osaka / Umeda 1",
+    "categoria": "natura",
+    "descrizione": "🌆 Grattacielo con osservatorio panoramico.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/DK2MASt8GopdM8me9"
+  },
+  {
+    "nome": "Osaka Station",
+    "zona": "Osaka / Umeda 1",
+    "categoria": "ritrovi",
+    "descrizione": "📍 Grande nodo ferroviario e area centrale di Umeda.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Osaka%20Station"
+  },
+  {
+    "nome": "Grand Front Osaka",
+    "zona": "Osaka / Umeda 1",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Grande complesso commerciale e di ristorazione a Umeda.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Grand%20Front%20Osaka"
+  },
+  {
+    "nome": "LUCUA Osaka",
+    "zona": "Osaka / Umeda 1",
+    "categoria": "shopping",
+    "descrizione": "🛍️ Grande complesso shopping collegato alla stazione di Osaka.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=LUCUA%20Osaka"
+  },
+  {
+    "nome": "HEP FIVE",
+    "zona": "Osaka / Umeda 1",
+    "categoria": "attrazioni",
+    "descrizione": "✨ Centro commerciale di Umeda con grande ruota panoramica.",
+    "posizione": "",
+    "maps": "https://www.google.com/maps/search/?api=1&query=HEP%20FIVE"
+  },
+  {
+    "nome": "Sumiyoshi Taisha",
+    "zona": "Osaka / Sumiyoshi 1",
+    "categoria": "templi",
+    "descrizione": "⛩️ Grande e antico santuario shintoista di Osaka.",
+    "posizione": "",
+    "maps": "https://maps.app.goo.gl/2YRnF6zB4km8Wojo9"
+  },
+  {
+    "nome": "Harukas 300",
+    "zona": "Osaka / Abeno 1",
+    "categoria": "natura",
+    "descrizione": "🌇 Osservatorio panoramico in cima ad Abeno Harukas.",
+    "posizione": "Nel messaggio: 2000 yen",
+    "maps": "https://maps.app.goo.gl/tpUbpGdDmGEZm38g8"
+  },
+  {
+    "nome": "Tutti i link che nelle prossime verifiche non daranno un nome certo",
+    "zona": "⚠️ Da verificare manualmente 2",
+    "categoria": "ritrovi",
+    "descrizione": "🔎 Li teniamo separati e non assegniamo una descrizione inventata. I link restano comunque disponibili per il controllo manuale.",
+    "posizione": "",
+    "maps": ""
+  }
+]</script>
+<script>
+(function(){
+'use strict';
+var places=JSON.parse(document.getElementById('places-data').textContent);
+var labels={food:'🍜 Food',templi:'⛩️ Templi',musei:'🏛️ Musei',shopping:'🛍️ Shopping',cafe:'☕ Café',natura:'🌳 Natura',ritrovi:'📍 Ritrovi',attrazioni:'✨ Attrazioni'};
+var root=document, placesRoot=root.getElementById('placesRoot'), search=root.getElementById('search');
+var active='all', favOnly=false, forcedZone=null, nearbyZone=null;
+function norm(s){return (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function waText(p){return '📍 '+p.nome+'\n'+(p.descrizione?'📝 '+p.descrizione+'\n':'')+(p.posizione?'📌 '+p.posizione+'\n':'')+(p.maps?'🗺️ '+p.maps:'');}
+function card(p,i){var key='giappone-fav-'+i+'-'+norm(p.nome);return '<article class="card" data-cat="'+esc(p.categoria)+'" data-zone="'+esc(p.zona)+'" data-search="'+esc(norm([p.nome,p.descrizione,p.posizione,p.zona,p.categoria].join(' ')))+'" data-index="'+i+'">'+
+'<div class="selectbox"><input type="checkbox" class="place-select" aria-label="Seleziona '+esc(p.nome)+'"><span>Seleziona per condividere</span></div>'+
+'<button aria-label="Aggiungi ai preferiti" class="fav" title="Preferito" type="button">☆</button>'+
+'<div class="name">'+esc(p.nome)+'</div><div class="desc">'+esc(p.descrizione||'')+'</div><div class="meta"><span class="tag">'+esc(labels[p.categoria]||p.categoria)+'</span></div>'+ (p.posizione?'<div class="note">'+esc(p.posizione)+'</div>':'')+
+'<div class="actions"><a class="btn maps" href="'+esc(p.maps||'#')+'" rel="noopener noreferrer" target="_blank">🗺️ Maps</a><a class="btn share" href="https://wa.me/?text='+encodeURIComponent(waText(p))+'" rel="noopener noreferrer" target="_blank">🟢 WhatsApp</a><details class="copybox"><summary class="btn copy">📋 Copia</summary><textarea readonly>'+esc(waText(p))+'</textarea></details></div></article>';}
+function render(){var by={}; places.forEach(function(p,i){(by[p.zona]||(by[p.zona]=[])).push([p,i]);});var out='';Object.keys(by).forEach(function(zone){var arr=by[zone];out+='<section data-zone="'+esc(zone)+'"><div class="section-head"><h2><span>'+esc(zone)+'</span> <span class="count">'+arr.length+'</span></h2><div class="section-tools"><button class="section-select" data-select-zone type="button">☑️ Seleziona zona</button></div></div>';arr.forEach(function(x){out+=card(x[0],x[1]);});out+='</section>';});placesRoot.innerHTML=out;bindCards();}
+function isSee(cat){return ['templi','musei','natura','attrazioni'].indexOf(cat)>=0;}
+function apply(){var q=norm(search?search.value:'');var cards=root.querySelectorAll('.card'), visible=0;Array.prototype.forEach.call(cards,function(c){var cat=c.getAttribute('data-cat'),zone=c.getAttribute('data-zone'),ok=!q||norm(c.getAttribute('data-search')).indexOf(q)>=0; if(active==='food')ok=ok&&cat==='food';else if(active==='see')ok=ok&&isSee(cat);else if(active!=='all')ok=ok&&cat===active;if(forcedZone)ok=ok&&zone===forcedZone;if(favOnly)ok=ok&&c.classList.contains('favorite');c.style.display=ok?'':'none';if(ok)visible++;});Array.prototype.forEach.call(root.querySelectorAll('section'),function(sec){var n=Array.prototype.some.call(sec.querySelectorAll('.card'),function(c){return c.style.display!=='none';});sec.style.display=n?'':'none';});var st=root.getElementById('status');if(st)st.textContent=visible+' luoghi visualizzati';var empty=root.getElementById('emptyState');if(empty)empty.style.display=visible?'none':'';}
+function bindCards(){
+ Array.prototype.forEach.call(root.querySelectorAll('.fav'),function(btn){var card=btn.closest('.card'),i=card.getAttribute('data-index'),p=places[+i],key='giappone-fav-'+i+'-'+norm(p.nome);try{if(localStorage.getItem(key)==='1'){card.classList.add('favorite');btn.textContent='★';}}catch(e){}btn.addEventListener('click',function(e){e.preventDefault();var on=card.classList.toggle('favorite');btn.textContent=on?'★':'☆';try{localStorage.setItem(key,on?'1':'0');}catch(x){}if(favOnly)apply();});});
+ Array.prototype.forEach.call(root.querySelectorAll('.copybox summary'),function(s){s.addEventListener('click',function(){var ta=s.parentElement.querySelector('textarea');setTimeout(function(){ta.focus();ta.select();try{navigator.clipboard.writeText(ta.value);}catch(e){}},20);});});
+ Array.prototype.forEach.call(root.querySelectorAll('.place-select'),function(cb){cb.addEventListener('change',updateSelection);});
+ Array.prototype.forEach.call(root.querySelectorAll('[data-select-zone]'),function(btn){btn.addEventListener('click',function(){var sec=btn.closest('section');var boxes=sec.querySelectorAll('.place-select');var any=Array.prototype.some.call(boxes,function(x){return !x.checked&&x.closest('.card').style.display!=='none';});Array.prototype.forEach.call(boxes,function(x){if(x.closest('.card').style.display!=='none')x.checked=any;});updateSelection();});});
+}
+function selectedCards(){return Array.prototype.filter.call(root.querySelectorAll('.card'),function(c){var cb=c.querySelector('.place-select');return cb&&cb.checked;});}
+function updateSelection(){var n=selectedCards().length,b=root.getElementById('shareBar'),c=root.getElementById('shareCount'),s=root.getElementById('shareSelected');if(c)c.textContent=n+' '+(n===1?'luogo selezionato':'luoghi selezionati');if(s)s.disabled=!n;if(b)b.classList.toggle('show',n>0);}
+function activate(cat){active=cat||'all';forcedZone=null;favOnly=false;Array.prototype.forEach.call(root.querySelectorAll('.filter'),function(b){b.classList.toggle('active',(b.getAttribute('data-filter')||'all')===active);});var fb=root.getElementById('favBtn');if(fb)fb.classList.remove('active');apply();}
+render();
+if(search){search.addEventListener('input',apply);search.addEventListener('search',apply);}
+Array.prototype.forEach.call(root.querySelectorAll('.filter'),function(b){b.addEventListener('click',function(){activate(b.getAttribute('data-filter'));});});
+function tool(id,fn){var b=root.getElementById(id);if(b)b.addEventListener('click',fn);}
+tool('foodBtn',function(){activate('food');});tool('seeBtn',function(){activate('see');});tool('favBtn',function(){favOnly=!favOnly;active='all';forcedZone=null;var b=root.getElementById('favBtn');b.classList.toggle('active',favOnly);apply();});
+tool('nearBtn',function(){if(!navigator.geolocation){alert('La posizione non è disponibile.');return;}navigator.geolocation.getCurrentPosition(function(pos){var zones=[['Ueno',35.7125,139.7747],['Asakusa',35.7148,139.7967],['Ryogoku',35.6962,139.7931],['Akihabara',35.6984,139.7731],['Harajuku',35.6702,139.7026],['Omotesando',35.6652,139.7123],['Arashiyama',35.0172,135.6710],['Kyoto / Gion',35.0037,135.7788],['Kyoto / Fushimi Inari',34.9671,135.7727],['Nara',34.6851,135.8048],['Osaka / Namba 3',34.6660,135.5010],['Osaka / Shinsekai 1',34.6527,135.5063],['Osaka / Umeda 1',34.7055,135.4905],['Osaka / Shinsaibashi 3',34.6748,135.5016],['Yanaka / Nezu',35.7194,139.7626],['Kyoto / Higashiyama 1',35.0008,135.7788],['Nara / Tōdai-ji 1',34.6890,135.8398]];function d(a,b,c,e){var p=Math.PI/180,R=6371,x=(c-a)*p,y=(e-b)*p;return 2*R*Math.asin(Math.sqrt(Math.sin(x/2)**2+Math.cos(a*p)*Math.cos(c*p)*Math.sin(y/2)**2));}var best=zones[0],bd=1e9;zones.forEach(function(z){var v=d(pos.coords.latitude,pos.coords.longitude,z[1],z[2]);if(v<bd){bd=v;best=z;}});forcedZone=best[0];active='all';apply();alert('Zona più vicina: '+best[0]+' (~'+bd.toFixed(1)+' km)');},function(){alert('Posizione non disponibile. Consenti la posizione a Safari/Chrome e riprova.');},{enableHighAccuracy:false,timeout:10000,maximumAge:300000});});
+var share=root.getElementById('shareSelected');if(share)share.addEventListener('click',function(){var cs=selectedCards();if(!cs.length)return;var msg='🇯🇵 GIAPPONE — LUOGHI SELEZIONATI\n\n'+cs.map(function(c){return waText(places[+c.getAttribute('data-index')]);}).join('\n\n');window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener');});
+var top=root.getElementById('topBtn');if(top)top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+var tc=root.getElementById('totalCount');if(tc)tc.textContent=places.length+' luoghi';
+apply();
+})();
+</script></body></html>
